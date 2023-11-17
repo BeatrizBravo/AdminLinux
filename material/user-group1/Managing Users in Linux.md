@@ -17,7 +17,7 @@ To get started, log in to the lab server using the credentials provided and then
 `sudo -i`
 
 
-![user-groups](C:\Users\beatriz.bravo-chavez\Documents\Github\devOps\AdminLinux\material\user.PNG)
+![user-groups](user.PNG)
 
 ## Objectives
 * Add the Users to the Server
