@@ -36,7 +36,10 @@ In this lab we are going to manage users and groups to get some practice using t
 Log in to the server 
 `ssh cloud_user@<PUBLIC_IP_ADDRESS>
 `
-Become root:
+
+
+**Become root**:
+
 
 `sudo -i
 `
@@ -49,7 +52,7 @@ Enter password at the prompt.
 useradd tstark
 useradd cdanvers
 useradd dprince
-Create the superhero Group
+
 
 ```
 
@@ -65,7 +68,9 @@ This command will display a list of all users on your Linux system.
 - Using the compgen command (bash shell only):
 `compgen -u`   This command will return a list of users in databases that can be enumerated.
 
-2. Create the new group:
+2. Create the superhero Group
+ 
+Create the new group:
 
 `groupadd superhero`
 
