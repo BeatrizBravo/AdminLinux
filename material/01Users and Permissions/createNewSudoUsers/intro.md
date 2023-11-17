@@ -28,9 +28,17 @@ Open a terminal session, and log in via SSH using credentials.
 1. Create a **gfreeman** **user** on the system:
 
 `sudo useradd -m gfreeman`
+
+**-m** will create a directory for the user
+
 2. Create an **avance** user, and **assign** it to the **wheel** **supplemental** group:
 
 `sudo useradd -G wheel -m avance`
+
+**-G** add the user to the group wheel, special group with administration privilages.
+
+
+
 3. Set the password for both accounts to **LASudo321**:
 ```shell
 sudo passwd gfreeman
@@ -43,13 +51,43 @@ sudo passwd avance
 
 1. Verify that the /etc/sudoers file will allow the wheel group access to run all commands with sudo:
 
-sudo visudo
+`sudo visudo`
+
+<details markdown=1>
+<summary markdown='span'>más</summary>
+<ul>
+<li><p>El comando sudo visudo se utiliza para editar el archivo /etc/sudoers en Linux con privilegios de superusuario. El archivo /etc/sudoers contiene la configuración de sudo, que permite a los usuarios ejecutar comandos con privilegios de superusuario.<br><br>
+
+Es importante destacar que el archivo /etc/sudoers no debe ser editado directamente con un editor de texto normal, ya que un error de sintaxis en el archivo puede dejar el sistema inaccesible. En su lugar, se recomienda utilizar el comando visudo para editar el archivo. El comando visudo realiza una verificación de sintaxis antes de guardar los cambios, lo que ayuda a prevenir errores y garantiza que el archivo se mantenga en un estado válido.<br><br>
+
+Al ejecutar sudo visudo, se abrirá el archivo /etc/sudoers en el editor predeterminado, que generalmente es vi o vim. Puedes realizar las modificaciones necesarias en el archivo y guardar los cambios antes de salir del editor. Una vez que hayas guardado los cambios, la configuración de sudo se actualizará de acuerdo con las modificaciones realizadas en el archivo /etc/sudoers.</p></li>
+</ul>
+</details>
+
+
+
 2. Note that there should not be a comment (#) on this line of the file:
 
+/ ## Allows people in grou wheel to run all commands<br>
+
 `%wheel  ALL=(ALL)       ALL`
+
+`:q` to left vim
+
+
 3. Switch to the avance account, and use the dash (-) to utilize a login shell:
 
 `sudo su - avance`
+<details markdown=1>
+<summary markdown='span'>más</summary>
+<p> El comando sudo su - avance se utiliza para cambiar al usuario "avance" y acceder a su sesión de inicio de sesión en el sistema con privilegios de superusuario. Al ejecutar este comando, se te solicitará ingresar la contraseña del usuario "avance".
+
+La opción - después de su indica que se debe cargar el entorno de inicio de sesión del usuario "avance". Esto significa que se cargarán las variables de entorno y la configuración específica del usuario "avance".
+
+Es importante tener en cuenta que al utilizar el comando sudo, se requiere ingresar la contraseña de administrador para autorizar la ejecución del comando.</p>
+</details>
+
+
 4. Attempt to read the /etc/shadow file at the console:
 
 `cat /etc/shadow`
