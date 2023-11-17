@@ -53,11 +53,35 @@ Create the superhero Group
 
 ```
 
+To see a list of users in Linux, you can use various commands. Here are a few methods:
+
+- Using the **getent** command:
+`getent passwd
+`
+This command will display a list of all users on your Linux system.
+
+- Using the ls command:
+`ls /home`   This command will list the home directories of all existing human users on the system. Please note that this method may also show home directories of past users who have been removed.
+- Using the compgen command (bash shell only):
+`compgen -u`   This command will return a list of users in databases that can be enumerated.
+
 2. Create the new group:
 
 `groupadd superhero`
 
-3. Set wheel Group as the the tstark Account's Primary Group
+To see a list of groups in Linux, you can use different commands. Here are a few methods:
+
+- Using the getent command:
+`getent group`
+This command will display a list of all groups on your Linux system.
+- Using the /etc/group file:
+`cat /etc/group`
+This command will display the contents of the /etc/group file, which contains information about all the groups on your Linux system.
+- Using the groups command:
+`groups`
+This command will display the groups that your current user is a member of.
+
+3. Set **wheel Group as** the tstark Account's **Primary** Group
 
 The usermod command will change which group a user is in. Change tstark:
 
@@ -71,7 +95,7 @@ Make sure it worked:
 
 The command's output should show his primary group is now wheel.
 
-4. Add superhero as a Supplementary Group on All Three Users
+4. Add **superhero as a Supplementary Group** on All Three Users
 4.1. Run the usermod command for each user:
 ```shell
 usermod -aG superhero tstark
