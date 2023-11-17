@@ -115,3 +115,18 @@ Run the following:
 
 `sermod -L dprince
 `
+check if a user account is locked in Linux:
+
+- Using the passwd command:
+
+`sudo passwd -S <username>
+`
+Replace <username> with the actual username of the account you want to check.
+The output will display information about the user account, including the password status. If the account is locked, you will see the letter 'L' in the password status field.
+
+- Using the getent command:
+
+`getent passwd <username>`
+
+Replace <username> with the actual username of the account you want to check.
+The output will display the user account information, including the account status. If the account is locked, you will see a '!' or '*' symbol in the password field.
